@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body >
+	<script type="text/javascript">
+	if (sessionStorage.getItem("login_room") == null) {
+	window.location = "login.html"
+	} 
+	</script>
+	<style type="text/css">
+		p{
+		margin:1px;
+		}
+		input {
+			border-radius:5px;
+		}
+	</style>
+	<label>Chat Room ID :</label><span id="r"></span>
+	<span id="chat" style="max-height:100px;overflow-y:scroll;" ></span><br><br><br>
+	<input id="m" placeholder="Type message" >
+	<button id="s" onclick="send()">Send</button>
+	<script src="https://www.gstatic.com/firebasejs/6.6.1/firebase-app.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/6.6.1/firebase-database.js"></script>
+	<script type="text/javascript">
+		
+		const firebaseConfig = {
+			apiKey: "AIzaSyB76z2wLkTLrv7nPQFojMcVnNRDEBJVsa0",
+			authDomain: "smtdfc-chat.firebaseapp.com",
+			databaseURL: "https://smtdfc-chat-default-rtdb.firebaseio.com",
+			projectId: "smtdfc-chat",
+			storageBucket: "smtdfc-chat.appspot.com",
+			messagingSenderId: "453253060115",
+			appId: "1:453253060115:web:c8704e44823962fe4851e6",
+			measurementId: "G-0SR1M0RF4R"
+		};
+
+		// Initializing Firebase
+		firebase.initializeApp(firebaseConfig);
+		var name = "anonymous"
+		var room = null
+		function send() {
+			m = document.getElementById("m").value
+			
+			if(name==""){
+				name="anonymous"
+			}
+			
+			firebase.database().ref("messages"+room).push().set({
+				"message": m,
+				"sender": name
+			})
+		}
+		function load() {
+			if (sessionStorage.getItem("login_room") == null) {
+				window.location = "login.html"
+			} else {
+				room = sessionStorage.getItem("login_room")
+				name = sessionStorage.getItem("login_name")
+			}
+			document.getElementById("r").innerHTML = room+"<br>"
+			document.getElementById("chat"). innerHTML = "loading message .. .If time out 1 mintes , Please check back id ! "
+			document.getElementById("m").hidden = "hidden"
+			document.getElementById("s").hidden = "hidden"
+			var c = false
+			if(name==""){
+			name="anonymous"
+			}
+			firebase.database().ref("messages"+room).push().set({
+			"message": name+" is joined chat room at "+new Date(),
+			"sender": "System" 
+			})
+			firebase.database().ref("messages"+room).on("child_added", function(data) {
+				if (!c) {
+					c = true
+					document.getElementById("chat").innerHTML = ""
+					document.getElementById("m").hidden = ""
+					document.getElementById("s").hidden = ""
+				}
+				if(data.val().sender==name){
+					document.getElementById("chat"). innerHTML +="<p><b>"+data.val(). sender+"</b> : "+data.val().message+"</p>"
+				}else{
+				 	document.getElementById("chat"). innerHTML +="<p><b>"+ data.val(). sender+"</b> : "+data.val().message+"</p>"
+				}
+			})
+		}
+		load()
+	</script>
+</body>
+</html>
