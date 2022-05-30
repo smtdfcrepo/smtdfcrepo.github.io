@@ -5,7 +5,7 @@ body {
 	margin: 0px;
 }
 .content-child {
-	box-shadow: 20px 80px 80px aqua;
+	box-shadow: 20px 80px 80px #91E5FF;
 	margin: 15px;
 }
 a {
