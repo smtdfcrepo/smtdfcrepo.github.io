@@ -1,13 +1,13 @@
-*{
-			font-family: Sans-Serif;
-		}
-		body {
-			margin: 0px;
-		}
+* {
+	font-family: Sans-Serif;
+}
+body {
+	margin: 0px;
+}
 .content-child {
-			box-shadow: 20px 80px 80px aqua;
-			margin:15px;
-		}
-	a{
-			text-decoration:none;
-		}
+	box-shadow: 20px 80px 80px aqua;
+	margin: 15px;
+}
+a {
+	text-decoration: none;
+}
