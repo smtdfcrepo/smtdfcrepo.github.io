@@ -1,31 +1,44 @@
-<!DOCTYPE HTML>
-<html>
+<!doctype html>
+<html lang="en">
 <head>
-	<title> Document | smtdfc</title>
-	 <link rel="stylesheet" href="https://smtdfcrepo.github.io/styles/type2.css">
-
-	<link rel="stylesheet" href="https://smtdfcrepo.github.io/styles/page_style.css">
-
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>smtdfc | Product</title>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+</head>
 <body>
-
-	<ul class="menu">
-		<h3>SMTDFC Document</h3>
-		<li><a href="home.html">Home</a></li>
-		<li><a href="product.html">Product</a></li>
-		<li><a href="document.html">Document</a></li>
-		<li><a href="#">Source</a></li>
-	</ul>
-	<div class="content">
-		<div class="content-child" >
-			<a href="page/document/serious_doc/index.html" >
-				<h2>Name : Serious Programming Languagle Document</h2>
-				<p>Description : This is the documentation of the Serious  programming language</p>
-				<p>Author: smtdfc</p>
-			</a>
+	<nav class="navbar bg-light fixed-top">
+		<div class="container-fluid">
+			<a class="navbar-brand" href="https://smtdfcrepo.github.io">smtdfc</a>
+			<button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+				<div class="offcanvas-header">
+					<h5 class="offcanvas-title" id="offcanvasNavbarLabel">Menu</h5>
+					<button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+				</div>
+				<div class="offcanvas-body">
+					<ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+						<li class="nav-item">
+							<a class="nav-link active" aria-current="page" href="https://smtdfcrepo.github.io">Home</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="https://smtdfcrepo.github.io/document.html">Document</a>
+						</li>
+						<li class="nav-item dropdown">
+							<a class="nav-link dropdown-toggle" href="https://smtdfcrepo.github.io/product.html" id="offcanvasNavbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+								Product
+							</a>
+							<ul class="dropdown-menu" aria-labelledby="offcanvasNavbarDropdown">
+								<li><a class="dropdown-item" href="#">Serious Programming language</a></li>
+							</ul>
+						</li>
+					</ul>
+				</div>
+			</div>
 		</div>
-		<br>
-		
-	</div>
-	
+	</nav>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
 </body>
 </html>
